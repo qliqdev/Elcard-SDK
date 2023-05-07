@@ -11,7 +11,10 @@ Pod::Spec.new do |s|
   s.author = package['author']
   s.source = { :git => package['repository']['url'], :tag => s.version.to_s }
   s.source_files = 'ios/Plugin/**/*.{swift,h,m,c,cc,mm,cpp}'
+  s.vendored_frameworks = 'ios/Frameworks/*.framework'
+  s.preserve_paths = 'ios/Frameworks/*.framework'
+  s.static_framework = true
   s.ios.deployment_target  = '13.0'
   s.dependency 'Capacitor'
-  s.swift_version = '5.1'
+  s.swift_version = '5.7.2'
 end

@@ -1,3 +1,14 @@
+export interface Theme {
+  accentColor?: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  foregroundColor?: string;
+  inputViewBackgroundColor?: string;
+  textColor?: string;
+}
+
+export type Language = 'ru' | 'ky' | 'en';
+
 export interface ElcartSDKPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  bindCard(options?: { theme?: Theme, language: Language }): Promise<{ code?: string, data: string }>;
 }
