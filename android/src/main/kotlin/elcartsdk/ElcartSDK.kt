@@ -5,9 +5,9 @@ import android.util.Log
 import com.getcapacitor.Bridge
 import com.getcapacitor.JSObject
 import com.getcapacitor.PluginCall
-import com.ipc.elcard.sdk.api.ElcardAPI
-import com.ipc.elcard.sdk.api.ElcardCodes
-import com.ipc.elcard.sdk.api.ElcardResultCallback
+import com.ipc.elcard.tokenize.api.ElcardAPI
+import com.ipc.elcard.tokenize.api.ElcardCodes
+import com.ipc.elcard.tokenize.api.ElcardResultCallback
 
 class ElcartSDK(private val bridge: Bridge): ElcardResultCallback {
     private var tag: String = "ElcartSDK";
@@ -26,22 +26,22 @@ class ElcartSDK(private val bridge: Bridge): ElcardResultCallback {
                 ret.put("data", data.getString("card_data"))
                 call?.resolve(ret)
                 Log.d(
-                    tag,
-                    String.format("Code %d, data %s", code, data.getString("card_data"))
+                        tag,
+                        String.format("Code %d, data %s", code, data.getString("card_data"))
                 )
             }
             ElcardCodes.ERROR_CANCELLED -> {
                 call?.reject("Cancelled","CANCELLED")
                 Log.d(
-                    tag,
-                    String.format("Code %d, reason %s", code, reason?.localizedMessage)
+                        tag,
+                        String.format("Code %d, reason %s", code, reason?.localizedMessage)
                 )
             }
             else -> {
                 call?.reject(reason?.localizedMessage,"ERROR")
                 Log.d(
-                    tag,
-                    String.format("Code %d, reason %s", code, reason?.localizedMessage)
+                        tag,
+                        String.format("Code %d, reason %s", code, reason?.localizedMessage)
                 )
             }
         }

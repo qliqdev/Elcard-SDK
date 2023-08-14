@@ -1,6 +1,5 @@
 package elcartsdk
 
-import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
 import com.getcapacitor.annotation.CapacitorPlugin
 import com.getcapacitor.PluginMethod

@@ -1,6 +1,6 @@
 {
   "name": "capacitor-elcart-sdk",
-  "version": "0.0.2",
+  "version": "5.0.0",
   "description": "Elcart tokenization service",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
